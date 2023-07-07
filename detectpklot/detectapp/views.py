@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from .forms import *
 import os
 import subprocess
+import shutil
 from .yolo import predict
 # Create your views here.
 def home(request):
@@ -22,6 +23,8 @@ def hotel_image_view(request):
 		dir = './images/'
 		for f in os.listdir(dir):
 			os.remove(os.path.join(dir, f))
+		if os.path.exists("./detectapp/static/runs/"):
+			shutil.rmtree("./detectapp/static/runs/")
 		if form.is_valid():
 			form.save()
 			return redirect('success')
@@ -36,5 +39,9 @@ def success(request):
 	path_image = path + image
 	print(path_image)
 	count = predict(path_image)
+	path_img_pre = "./static/runs/detect/predict/" + os.listdir("./detectapp/static/runs/detect/predict/")[0]
+	print(path_img_pre)
 	# subprocess.run([os.remove(path_image)]) 
-	return HttpResponse("trống {} có xe {}".format(count[0],count[1]))
+	context = {"empty":count[0],"car":count[1], "image":path_img_pre}
+	# print(path_img_pre)}
+	return render(request, 'show_image.html',context)

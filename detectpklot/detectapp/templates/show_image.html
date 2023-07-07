@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<div class="w-50 border rounded bg-info mx-auto mt-3 shadow-lg p-3 mb-5">
+    <h1 class="m-2">駐車台数：{{empty}}</h1>
+    <h1 class="m-2">空きスペース：{{car}}</h1>
+    <div class="mx-auto">
+        <img
+            src="{{image}}"
+            class="centerimg"
+            style="max-width: 100%; padding: 10px"
+        />
+    </div>
+    <button
+        onclick="location.href='http://127.0.0.1:8000/'"
+        type="button"
+        class="btn bg-warning mt-2 m-2 btn-lg"
+    >
+        Back
+    </button>
+</div>
+
+{% endblock %}
