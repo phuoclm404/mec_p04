@@ -8,7 +8,7 @@ def predict(image):
     model = YOLO(path)
     im1 = Image.open(image)
     names = model.names
-    savedir="./runs/detect/"
+    savedir="detectapp/static/runs/detect/"
     results = model.predict(source=[im1],save=True,conf=0.35, project=savedir)
     count_empty = 0
     count_occupied = 0
