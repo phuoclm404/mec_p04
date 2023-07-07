@@ -1,0 +1,5 @@
+path: /content/drive/MyDrive/train_data
+train: images/train
+val: images/val
+nc: 2
+names: ['Empty', 'Occupied']
