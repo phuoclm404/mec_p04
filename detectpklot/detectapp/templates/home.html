@@ -1,15 +1,12 @@
-{% extends 'base.html' %} {% block content %}
-<div class="w-25 mx-auto mt-3 shadow-lg mb-5">
-    <form
-        method="post"
-        enctype="multipart/form-data"
-        class="form-label form-control mb-3 bg-info"
-    >
+{% extends 'base.html' %}
+{% block title %}Upload Image{%endblock%}
+{% block content %}
+<div class="w-25 mx-auto mt-5 shadow-lg mb-5">
+    <form method="post" enctype="multipart/form-data" class="form-label form-control mb-3 bg-info">
         {% csrf_token %}
         <h1>{{form.hotel_Main_Img.label}}</h1>
         <imput>{{form.hotel_Main_Img}}</imput>
-        <button class="btn btn-success mt-2" type="submit">Upload</button>
+        <button class="btn btn-success mt-2" type="submit">アップロード</button>
     </form>
 </div>
-
 {% endblock %}
