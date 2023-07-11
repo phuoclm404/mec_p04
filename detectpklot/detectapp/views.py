@@ -42,6 +42,7 @@ def success(request):
     path_image = path + image
     print("image need predict: ", path_image)
     count = predict(path_image)
+    # count = (1,1)
     # path_img_pre = r"../images/img_predict.png"
     # os.system("pwd")
     path_img_pre = "./static/image_predict/img_predict.png"

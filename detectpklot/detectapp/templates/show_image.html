@@ -1,12 +1,18 @@
 {% extends 'base.html' %} {% block title%}Detected{%endblock%} {% block content%}
-<div class="w-50 border rounded bg-info mx-auto mt-3 shadow-lg p-3 mb-5">
-    <h1 class="m-2">駐車台数：{{car}}</h1>
-    <h1 class="m-2">空きスペース：{{empty}}</h1>
-    <div class="mx-auto">
-        <img src="{{image}}" class="centerimg" style="max-width: 100%; padding: 10px" />
+<div class="show_img rounded mx-auto p-2 shadow">
+
+    <div class="bg-info rounded p-2 m-2">
+        <h1 class="m-2">駐車台数：{{car}}</h1>
+        <h1 class="m-2">空きスペース：{{empty}}</h1>
+        <div class="mx-auto">
+            <img src="{{image}}" class="centerimg" style="max-width: 100%; padding: 10px" />
+        </div>
+        <button onclick="location.href='http://127.0.0.1:8000/'" type="button"
+            class="btn bg-warning mt-2 m-2 btn-lg shadow">
+            戻り
+        </button>
     </div>
-    <button onclick="location.href='http://127.0.0.1:8000/'" type="button" class="btn bg-warning mt-2 m-2 btn-lg">
-        戻り
-    </button>
+
+
 </div>
 {% endblock %}

@@ -4,7 +4,7 @@ import cv2
 import os
 import numpy as np
 
-path = "./detectapp/mec_8x_20.pt"
+path = "./detectapp/model_mec/8x_20_kho.onnx"
 
 
 def predict(image):
@@ -14,7 +14,7 @@ def predict(image):
     savedir = "images/"
     results = model.predict(
         source=[im1],
-        conf=0.35,
+        # conf=0.5,
         save=False,
         show_labels=False,
         show_conf=False,
@@ -22,8 +22,11 @@ def predict(image):
     count_empty = 0
     count_occupied = 0
     for r in results:
+        # print(r)
         for c in r.boxes.cls:
-            if names[int(c)] == "Empty":
+            # print("ccccc:", int(c.item()))
+            # print(r.names)
+            if r.names[int(c.item())] == "Empty":
                 count_empty += 1
             else:
                 count_occupied += 1
@@ -35,27 +38,22 @@ def predict(image):
         path_image = cv2.imread(path_image)
         boxes = r.boxes.cpu().numpy()  # get boxes on cpu in numpy
         for box in boxes:  # iterate boxes
-            r = box.xyxy[0].astype(int)  # get corner points as int
+            b = box.xyxy[0].astype(int)  # get corner points as int
             # print(r)
             # print(box.cls)
-            if names[int(box.cls)] == "Empty":
-                cv2.rectangle(path_image, r[:2], r[2:], (0, 0, 255), 2)
+            # print(r.names, type(r.names))
+            if r.names[int(box.cls)] == "Empty":
+                cv2.rectangle(path_image, b[:2], b[2:], (0, 0, 255), 2)
                 cv2.imwrite(
                     "./detectapp/static/image_predict/img_predict.png", path_image
                 )
             else:
-                cv2.rectangle(path_image, r[:2], r[2:], (255, 0, 0), 2)
+                cv2.rectangle(path_image, b[:2], b[2:], (255, 0, 0), 2)
                 cv2.imwrite(
                     "./detectapp/static/image_predict/img_predict.png", path_image
                 )
         # print(r.boxes.cls)
         print("complete draw boxes")
-    clist = results[0].boxes.cls
-    cls = set()
-    for cno in clist:
-        cls.add(model.names[int(cno)])
-
-    print(cls)
     return count_empty, count_occupied
 
 

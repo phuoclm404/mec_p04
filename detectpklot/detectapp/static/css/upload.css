@@ -8,3 +8,21 @@
     margin-right: auto;
     width: 50%;
 }
+
+.home {
+    margin-top: 50px;
+    height: 187px;
+    background-color: rgb(29, 64, 128);
+    width: 500px;
+}
+
+.show_img {
+    margin-top: 50px;
+    padding-top: 20px;
+    height: auto;
+    background-color: rgb(29, 64, 128);
+    width: 900px;
+}
+.no-border{
+    border: 0;
+}
