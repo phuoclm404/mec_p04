@@ -4,9 +4,7 @@ train_data1/
 yolov8/
 test_del_none/
 PKLotYoloData/
-detectpklot/detectapp/mec_1.pt
-detectpklot/detectapp/mec.pt
-detectpklot/detectapp/mec_8x_20.pt
+detectpklot/detectapp/model_mec/
 detectpklot/detectapp/run/
 detectpklot/db.sqlite3
 detectpklot/images/
