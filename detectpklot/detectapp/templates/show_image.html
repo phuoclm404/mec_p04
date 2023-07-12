@@ -5,7 +5,8 @@
         <h1 class="m-2">駐車台数：{{car}}</h1>
         <h1 class="m-2">空きスペース：{{empty}}</h1>
         <div class="mx-auto">
-            <img src="{{image}}" class="centerimg" style="max-width: 100%; padding: 10px" />
+            {% load static %}
+            <img src="{% static '/image/img_predict.png'%}" class="centerimg" style="max-width: 100%; padding: 10px" />
         </div>
         <button onclick="location.href='http://127.0.0.1:8000/'" type="button"
             class="btn bg-warning mt-2 m-2 btn-lg shadow">
