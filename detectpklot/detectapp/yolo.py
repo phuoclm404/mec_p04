@@ -45,12 +45,12 @@ def predict(image):
             if r.names[int(box.cls)] == "Empty":
                 cv2.rectangle(path_image, b[:2], b[2:], (0, 0, 255), 2)
                 cv2.imwrite(
-                    "./detectapp/static/image_predict/img_predict.png", path_image
+                    "./detectapp/static/image/img_predict.png", path_image
                 )
             else:
                 cv2.rectangle(path_image, b[:2], b[2:], (255, 0, 0), 2)
                 cv2.imwrite(
-                    "./detectapp/static/image_predict/img_predict.png", path_image
+                    "./detectapp/static/image/img_predict.png", path_image
                 )
         # print(r.boxes.cls)
         print("complete draw boxes")

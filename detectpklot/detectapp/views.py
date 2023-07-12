@@ -42,12 +42,13 @@ def success(request):
     path_image = path + image
     print("image need predict: ", path_image)
     count = predict(path_image)
-    # count = (1,1)
+    # count = (1, 1)
     # path_img_pre = r"../images/img_predict.png"
     # os.system("pwd")
-    path_img_pre = "./static/image_predict/img_predict.png"
-    print("image predicted: ", path_img_pre)
+    # C:\Users\phuoc\OneDrive - 松阪電子計算センター（オフショア環境）\Desktop\p04git\detectpklot\detectapp\static\image_predict
+    # path_img_pre = r"\detectapp\static\image\img_predict.png"
+    # print("image predicted: ", path_img_pre)
     # subprocess.run([os.remove(path_image)])
-    context = {"empty": count[0], "car": count[1], "image": path_img_pre}
+    context = {"empty": count[0], "car": count[1]}
     # print(path_img_pre)}
     return render(request, "show_image.html", context)
