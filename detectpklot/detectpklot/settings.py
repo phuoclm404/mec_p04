@@ -23,10 +23,13 @@ import os
 SECRET_KEY = "django-insecure-j&id#_xspntn(o)=*$a4&i1g65k=xs!o&9ail#x*gi6-uc_=qp"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'detectapp/static'),]
+ALLOWED_HOSTS = ["192.168.0.100"]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "detectapp/static"),
+]
 
 # Application definition
 
