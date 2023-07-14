@@ -3,15 +3,21 @@ from PIL import Image
 import cv2
 import os
 import numpy as np
+from .log import data, print_log
 
-path = "./detectapp/model_mec/8x_20_kho.onnx"
+path1 = "./detectapp/model_mec/"
 
 
-def predict(image):
+def predict(image, model_name):
+    path = path1 + model_name
     model = YOLO(path)
     im1 = Image.open(image)
     names = model.names
     savedir = "images/"
+    log = (
+        "============" + "Thực hiện predict bằng model: " + model_name + "============"
+    )
+    data(log)
     results = model.predict(
         source=[im1],
         # conf=0.5,
@@ -44,16 +50,15 @@ def predict(image):
             # print(r.names, type(r.names))
             if r.names[int(box.cls)] == "Empty":
                 cv2.rectangle(path_image, b[:2], b[2:], (0, 0, 255), 2)
-                cv2.imwrite(
-                    "./detectapp/static/image/img_predict.png", path_image
-                )
+                cv2.imwrite("./detectapp/static/image/img_predict.png", path_image)
             else:
                 cv2.rectangle(path_image, b[:2], b[2:], (255, 0, 0), 2)
-                cv2.imwrite(
-                    "./detectapp/static/image/img_predict.png", path_image
-                )
+                cv2.imwrite("./detectapp/static/image/img_predict.png", path_image)
         # print(r.boxes.cls)
-        print("complete draw boxes")
+        log = "============" + "Complete draw boxes" + "============"
+        data(log)
+        print_log()
+
     return count_empty, count_occupied
 
 

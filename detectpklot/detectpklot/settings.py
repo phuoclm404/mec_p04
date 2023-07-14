@@ -23,14 +23,14 @@ import os
 SECRET_KEY = "django-insecure-j&id#_xspntn(o)=*$a4&i1g65k=xs!o&9ail#x*gi6-uc_=qp"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.0.100"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "6a82-14-161-72-65.ngrok-free.app"]
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "detectapp/static"),
 ]
-
+CSRF_TRUSTED_ORIGINS = ["https://*.ngrok-free.app/"]
 # Application definition
 
 INSTALLED_APPS = [
