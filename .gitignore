@@ -7,5 +7,4 @@ PKLotYoloData/
 detectpklot/detectapp/model_mec/
 detectpklot/detectapp/run/
 detectpklot/db.sqlite3
-detectpklot/images/
 detectpklot/detectapp/static/image
