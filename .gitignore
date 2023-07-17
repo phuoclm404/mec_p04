@@ -8,3 +8,6 @@ detectpklot/detectapp/model_mec/
 detectpklot/detectapp/run/
 detectpklot/db.sqlite3
 detectpklot/detectapp/static/image
+*.pyc
+*.jpg
+*.png
